@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  --color-ink: #0d1015;
+  --color-panel: #12161d;
+  --color-panel-2: #191e27;
+  --color-hairline: #262c37;
+  --color-hairline-soft: #1c212a;
+  --color-ivory: #ece7db;
+  --color-muted: #8b93a3;
+  --color-faint: #545c6b;
+  --color-brass: #c19a5b;
+  --color-brass-dim: #8a7250;
+  --color-clear: #5fa57e;
+  --color-flag: #c1594c;
+  --color-pending: #c99a4b;
+}
+
+.light {
+  --color-ink: #f3efe4;
+  --color-panel: #fbf9f3;
+  --color-panel-2: #eee8d9;
+  --color-hairline: #ddd4bd;
+  --color-hairline-soft: #e6dfcb;
+  --color-ivory: #1d1f24;
+  --color-muted: #5c5f52;
+  --color-faint: #8a8d80;
+  --color-brass: #8a6a34;
+  --color-brass-dim: #ab8a54;
+  --color-clear: #2f7a55;
+  --color-flag: #a5402f;
+  --color-pending: #8a6a1f;
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-panel: var(--color-panel);
+  --color-panel-2: var(--color-panel-2);
+  --color-hairline: var(--color-hairline);
+  --color-hairline-soft: var(--color-hairline-soft);
+  --color-ivory: var(--color-ivory);
+  --color-muted: var(--color-muted);
+  --color-faint: var(--color-faint);
+  --color-brass: var(--color-brass);
+  --color-brass-dim: var(--color-brass-dim);
+  --color-clear: var(--color-clear);
+  --color-flag: var(--color-flag);
+  --color-pending: var(--color-pending);
+  --font-serif: var(--font-newsreader);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-ivory);
+  font-family: var(--font-plex-sans), Arial, Helvetica, sans-serif;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-hairline) transparent;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-brass) 35%, transparent);
+}
+
+.font-serif {
+  font-feature-settings:
+    "onum" 1,
+    "liga" 1;
+}
+
+.font-mono {
+  font-feature-settings: "zero" 1;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  animation: rise 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise {
+    animation: none;
+  }
+}
